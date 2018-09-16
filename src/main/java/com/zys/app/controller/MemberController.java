@@ -21,6 +21,11 @@ public class MemberController {
 	
 	@RequestMapping("/getUserList")
 	public List<String> getUserList() {
+		//：测试服务超时的时候，进行服务降级
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+		}
 		List<String> listUser = new ArrayList<String>();
 		listUser.add("zhangsan");
 		listUser.add("lisi");
